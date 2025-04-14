@@ -21,8 +21,8 @@ An interactive Python terminal app for managing a grocery store's inventory usin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/bellaillingworth/Inventory-Management_Python.git
-   cd Inventory-Management_Python
+   git clone https://github.com/bellaillingworth/Inventory-Management.git
+   cd Inventory-Management
 
 ## Developed by
 Bella Illingworth
