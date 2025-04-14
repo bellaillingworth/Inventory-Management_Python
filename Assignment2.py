@@ -4,8 +4,6 @@ An interactive Python app that manages grocery inventory using a CSV file for st
 Features include adding, updating, removing, searching, and displaying products 
 with input validation and category value summaries.
 
-Group 15
-Bella Illingworth, Drew Hansen, Nikko Higgins, Ryan DiGiallonardo
 """
 
 from utilities import safe_input
@@ -14,7 +12,7 @@ product_id = 1 #Initialize the productID
 inventory = {} #Initialize an empty dictionary which will have ProductID as the Key
 
 #Advanced feature
-#Load info from csv file
+#Load info from CSV file
 f = open('inventory.csv', 'r')
 
 for line in f: #Interate over the file 
@@ -77,14 +75,14 @@ while True:
        
         product_id += 1 #New productID for a new product
         
-        #Display a message that let the user know that the product is added
+        #Display a message that lets the user know that the product has been added
         print('Item added successfully') 
 
     elif choice == '2' or choice == 'R' or choice == "r":
         productid = safe_input("Enter the ID of the product to remove: ", 
                                "ERROR: ProductID must be a positive integer value.", int, 0, None)
         
-        #Display a message if the user enter the wrong ID
+        #Display a message if the user enters the wrong ID
         if productid not in inventory: 
             print('No product with that ID found')
             continue
@@ -121,7 +119,7 @@ while True:
             print(f"Price($): {price:.2f}")
             print(f"Quantity: {quantity}")
             
-        else: #Display a message if the user enter the wrong ID
+        else: #Display a message if the user enters the wrong ID
             print('Item not found!')
             
     elif choice == '5' or choice == 'U' or choice == "u":
@@ -142,7 +140,7 @@ while True:
             print('Item updated successfully!')
             
         else:
-            #If the product ID is not existed, display an error message
+            #If the product ID has not existed, display an error message
             print('Item not found!')
     
     elif choice == '6' or choice == 'A' or choice == "a":
@@ -196,10 +194,10 @@ while True:
         
     elif choice == '8' or choice == 'S' or choice == "s":
         
-        #Take the input that case insensitive and allow partial matches
+        #Take the input that is case insensitive and allow partial matches
         product_name = input('Enter the name of the product to search: ').lower()
         
-        for product_id, values in inventory.items(): #Iterate through product in inventory
+        for product_id, values in inventory.items(): #Iterate through products in inventory
             
             if product_name in values['name'].lower(): #Check for the match substring of the item's name
                 #Extract details
@@ -225,7 +223,7 @@ while True:
         print("Goodbye!")
         break
     else:
-        #Display an error message if the user enter an option that is not in the options
+        #Display an error message if the user enters an option that is not in the options
         print("Invalid option entered. Enter 9 or o to see the options.")
 
 # Save updated inventory to csv file
@@ -244,7 +242,7 @@ for item in inventory:
     #Separate each value by a comma
     entry = f"{item},{inventory[item]['name']},{inventory[item]['category']},{inventory[item]['price']},{inventory[item]['quantity']}\n"
     
-    #Writing the info that extracted from each item in to the CSV file
+    #Writing the info extracted from each item into the CSV file
     f.write(entry)
     
 f.close()
